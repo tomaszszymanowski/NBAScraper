@@ -5,21 +5,30 @@ import java.util.regex.Pattern;
 
 public class StringFormatV2 {
 
-    public static void main(String[] args) {
-        String text    =
-                "This is the text which is to be searched " +
-                        "for occurrences of the word 'is'.";
+    public static String goodString(String source) {
+        String[] arr = source.split("NBA");
+       StringBuilder sb = new StringBuilder();
+       String res = arr[1].replace(" : ", " ");
+       sb.append(arr[1].charAt(0));
 
-        String regex = "is";
 
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(text);
-
-        int count = 0;
-        while(matcher.find()) {
-            count++;
-            System.out.println("found: " + count + " : "
-                    + matcher.start() + " - " + matcher.end());
+        for(int i = 1; i < res.length(); i++){
+            if(Character.isUpperCase(res.charAt(i)) & Character.isLowerCase(res.charAt(i-1))){
+                sb.append(",");
+            }
+            if(Character.isDigit(res.charAt(i)) & Character.isLetter(res.charAt(i-1))){
+                sb.append(",");
+            }
+            sb.append(res.charAt(i));
         }
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        String raw = "04.12.21NBAGolden State WarriorsPhoenix Suns118 : 96";
+        System.out.println(goodString(raw));
+
+
     }
 }
