@@ -1,0 +1,15 @@
+25.12.21,Milwaukee Bucks,Boston Celtics,117 : 113
+24.12.21,Dallas Mavericks,Milwaukee Bucks,95 : 102
+23.12.21,Milwaukee Bucks,Houston Rockets,126 : 106
+19.12.21,Milwaukee Bucks,Cleveland Cavaliers,90 : 119
+18.12.21,New Orleans Pelicans,Milwaukee Bucks,116 : 112(103 : 103)
+16.12.21,Milwaukee Bucks,Indiana Pacers,114 : 99
+14.12.21,Boston Celtics,Milwaukee Bucks,117 : 103
+12.12.21,New York Knicks,Milwaukee Bucks,97 : 112
+11.12.21,Houston Rockets,Milwaukee Bucks,114 : 123
+09.12.21,Miami Heat,Milwaukee Bucks,113 : 104
+07.12.21,Milwaukee Bucks,Cleveland Cavaliers,112 : 104
+05.12.21,Milwaukee Bucks,Miami Heat,124 : 102
+03.12.21,Toronto Raptors,Milwaukee Bucks,97 : 93
+02.12.21,Milwaukee Bucks,Charlotte Hornets,127 : 125
+28.11.21,Indiana Pacers,Milwaukee Bucks,100 : 118

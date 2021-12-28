@@ -1,10 +1,15 @@
-25.12.21NBAPhoenix SunsGolden State Warriors107 : 116
-24.12.21NBAPhoenix SunsOklahoma City Thunder113 : 101
-22.12.21NBALos Angeles LakersPhoenix Suns90 : 108
-20.12.21NBAPhoenix SunsCharlotte Hornets137 : 106
-17.12.21NBAPhoenix SunsWashington Wizards118 : 98
-15.12.21NBAPortland Trail BlazersPhoenix Suns107 : 111
-14.12.21NBALos Angeles ClippersPhoenix Suns111 : 95
-11.12.21NBAPhoenix SunsBoston Celtics111 : 90
-07.12.21NBAPhoenix SunsSan Antonio Spurs108 : 104
-04.12.21NBAGolden State WarriorsPhoenix Suns118 : 96
+25.12.21NBAMilwaukee BucksBoston Celtics117 : 113
+24.12.21NBADallas MavericksMilwaukee Bucks95 : 102
+23.12.21NBAMilwaukee BucksHouston Rockets126 : 106
+19.12.21NBAMilwaukee BucksCleveland Cavaliers90 : 119
+18.12.21NBANew Orleans PelicansMilwaukee Bucks116 : 112(103 : 103)
+16.12.21NBAMilwaukee BucksIndiana Pacers114 : 99
+14.12.21NBABoston CelticsMilwaukee Bucks117 : 103
+12.12.21NBANew York KnicksMilwaukee Bucks97 : 112
+11.12.21NBAHouston RocketsMilwaukee Bucks114 : 123
+09.12.21NBAMiami HeatMilwaukee Bucks113 : 104
+07.12.21NBAMilwaukee BucksCleveland Cavaliers112 : 104
+05.12.21NBAMilwaukee BucksMiami Heat124 : 102
+03.12.21NBAToronto RaptorsMilwaukee Bucks97 : 93
+02.12.21NBAMilwaukee BucksCharlotte Hornets127 : 125
+28.11.21NBAIndiana PacersMilwaukee Bucks100 : 118
