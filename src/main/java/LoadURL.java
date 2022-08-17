@@ -38,8 +38,8 @@ LoadURL {
 //        for(String st : arr){
 //            System.out.print(st);
 //        }
-        System.out.print(arr[1]);
-        System.out.print(arr[2]);
+        System.out.println(arr[1].trim());
+        System.out.println(arr[2].trim());
 //        System.out.print(body.getElementsByTag("h1"));
 
 //        System.out.print(body.getElementsByClass("game-result"));
