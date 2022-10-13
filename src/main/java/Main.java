@@ -36,7 +36,6 @@ public class Main {
             System.out.println(s);
         }*/
 
-/*
         String input = element;
         Pattern pattern = Pattern.compile("\\d+\\s");
         Pattern pattern2 = Pattern.compile("\\d\\d\\d\\s");
@@ -54,7 +53,7 @@ public class Main {
             b.append(m.group(0));
         }
         System.out.println(b);
-    }*/
+    }
 
     }
-}
+
