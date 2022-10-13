@@ -28,7 +28,7 @@ public class Main {
         }
 
         for(String s : arr2){
-            list.add(s);stworzony str
+            list.add(s);
         }
 
         for(String s : list){
