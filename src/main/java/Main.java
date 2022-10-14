@@ -1,5 +1,7 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,16 +15,18 @@ public class Main {
         //String title = doc.title();
 
         //Element element = doc.getElementById("anyid");
+        //Elements element = doc.getElementsByClass("F2");
+
         String element = doc.getElementsByClass("F2").text();
         String element1 = doc.getElementsByClass("F1").text();
 
-        // System.out.println(element);
-        //System.out.println(element1);
 
-//        String[] arr = element.split("  ");
-//        String[] arr2 = element1.split("  ");
+//        System.out.println(elementStr);
 
-        /*List<String> list = new ArrayList<>(60);
+        String[] arr = element.split("  ");
+        String[] arr2 = element1.split("  ");
+
+        List<String> list = new ArrayList<>(60);
 
         for(String s : arr){
             list.add(s);
@@ -34,9 +38,9 @@ public class Main {
 
         for(String s : list){
             System.out.println(s);
-        }*/
+        }
 
-        String input = element;
+        /*String input = element2;
         Pattern pattern = Pattern.compile("\\d+\\s");
         Pattern pattern2 = Pattern.compile("\\d\\d\\d\\s");
 
@@ -52,7 +56,7 @@ public class Main {
             }
             b.append(m.group(0));
         }
-        System.out.println(b);
+        System.out.println(b);*/
     }
 
     }
