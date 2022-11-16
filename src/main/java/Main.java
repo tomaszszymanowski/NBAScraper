@@ -19,72 +19,68 @@ public class Main {
 //                "       \\/       \\/    \\/          \\/     \\/           \\/|__|        \\/             \\/\\/                           \\/     \\/     \\/       \\/");
 
         // tworzenie listy zawierającej linki z podanego zakresu dat
-        List<String> linksFromRange = TimeUtil.getRangeOfDate();
-
+        List<String> linksFromRange = TimeUtil.getLinksFromDateRange();
         ArrayList<String> allGames = new ArrayList<>();
+        StringBuilder sbLink = new StringBuilder();
 
         // główna pętala programu
         for (String s : linksFromRange) {
 
-            StringBuilder sbLink = new StringBuilder(s);
+            sbLink.append(s);
+            System.out.println(s);
 
-
-            //pobranie documentu ze strony
+            //pobranie documentu ze strony jako html
             Elements elements = getElementsFromURL(sbLink);
 
-
             //parsowanie html na string do edycji i ponowna konwersja na html
-            StringBuilder sb = new StringBuilder(String.valueOf(elements.get(0).toString()
+            StringBuilder sb = new StringBuilder((elements.get(0).toString()
                     .replaceAll("><", ">0<").replaceAll("> <", ">0<")));
-            String html = sb.toString().replaceAll("00", ";");
+
+            String html = sb.toString().replaceFirst("00", ";");
             Document doc2 = Jsoup.parse(html);
 
 
 
             // drukowanie wierszy z tagiem F1
             StringBuilder stringBuilder = new StringBuilder();
-            Elements elements1 = doc2.getElementsByClass("F1");
-            int index1 = elements1.size();
-            int count1 = 0;
+            Elements elementsF1 = doc2.getElementsByClass("F1");
+            int indexF1 = elementsF1.size();
+            int countF1 = 0;
 
-            while (count1 < index1) {
-//                allGames.add(elements1.get(count1).text()
-//                        .replaceAll("00 ", ";").replaceAll("00 ", "")
-//                        .replaceFirst("0", ";").replaceAll("- ", "-"));
-
-                stringBuilder.append(elements1.get(count1).text()
-                        .replaceAll("00 ", "").replaceAll("00 ", ";")
-                        .replaceFirst("0", ";").replaceAll("- ", "-"));
-                stringBuilder =stringBuilder.insert(3,'$');
-                System.out.println(stringBuilder.toString());
-                stringBuilder.setLength(0);
-                count1 += 3;
-            }
-
-
-            //drukowanie wierszy z tagiem F2
-            stringBuilder.setLength(0);
-            Elements elements2 = doc2.getElementsByClass("F2");
-            int index = elements2.size();
-            int count = 0;
-            while (count < index) {
-//                allGames.add(elements1.get(count).text()
-//                        .replaceAll("00 ", "").replaceAll("00 ", "")
-//                        .replaceFirst("0", ";").replaceAll("- ", "-"));
-
-                stringBuilder.append(elements1.get(count).text()
-                        .replaceAll("00 ", "").replaceAll("00 ", ";")
+            while (countF1 < indexF1) {
+                stringBuilder.append(elementsF1.get(countF1).text()
+                        .replaceFirst("00 ", "")
                         .replaceFirst("0", ";").replaceAll("- ", "-"));
                 stringBuilder =stringBuilder.insert(3,'$');
                 if(stringBuilder.charAt(stringBuilder.length()-1) == '0' & stringBuilder.charAt(stringBuilder.length()-2) == ' '){
                     stringBuilder.deleteCharAt(stringBuilder.length()-1);
                 }
-
+//                allGames.add(stringBuilder.toString());
                 System.out.println(stringBuilder.toString());
                 stringBuilder.setLength(0);
-                count += 3;
+                countF1 += 3;
             }
 
+
+            //drukowanie wierszy z tagiem F2
+            stringBuilder.setLength(0);
+            Elements elementsF2 = doc2.getElementsByClass("F2");
+            int indexF2 = elementsF2.size();
+            int countF2 = 0;
+            while (countF2 < indexF2) {
+                stringBuilder.append(elementsF1.get(countF2).text()
+                        .replaceFirst("00 ", "")
+                        .replaceFirst("0", ";").replaceAll("- ", "-"));
+                stringBuilder =stringBuilder.insert(3,'$');
+                if(stringBuilder.charAt(stringBuilder.length()-1) == '0' & stringBuilder.charAt(stringBuilder.length()-2) == ' '){
+                    stringBuilder.deleteCharAt(stringBuilder.length()-1);
+                }
+//                allGames.add(stringBuilder.toString());
+                System.out.println(stringBuilder.toString());
+                stringBuilder.setLength(0);
+                countF2 += 3;
+            }
+            sbLink.setLength(0);
         }
 
         //saveInExcel(allGames);
@@ -93,16 +89,15 @@ public class Main {
     }
 
     private static Elements getElementsFromURL(StringBuilder sbLink) throws IOException {
-        Element doc = Jsoup.connect(sbLink.toString()).get();
+        Element element = Jsoup.connect(sbLink.toString()).get();
         try {
-            doc = Jsoup.connect(sbLink.toString()).get();
+            element = Jsoup.connect(sbLink.toString()).get();
 
         }catch (IOException exception){
 
         }
 
-
-        return doc.getElementsByTag("html");
+        return element.getElementsByTag("html");
     }
 
 
