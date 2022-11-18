@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ExtractDataFromURL {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException {
 
         Document document = null;
         try{
@@ -95,24 +95,56 @@ public class ExtractDataFromURL {
 
             String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst(" 0 ", ";");
 
-            String[] arr = str.split(";");
-            System.out.println(arr[1]);
-            String[] numArr = arr[1].split(" ");
-            System.out.println(numArr[1]);
-            stringBuilder.setLength(0);
-            stringBuilder.append(str);
+
             if(str.contains("Bac&k to the Top")){
                 stringBuilder.setLength(0);
             }
-            System.out.println(stringBuilder.toString());
-
-
 
             stringBuilder.setLength(0);
             count += 3;
         }
 
 
+
+
+//        Document doc = Jsoup.connect("https://www.progsport.com/basketball/bsk-predictions-221116.html").get();
+//        Elements elementsF1 = doc.getElementsByClass("F2");
+//
+//
+//        sb = new StringBuilder(doc.getElementsByClass("F2").toString());
+//        StringBuilder sb = new StringBuilder(doc.getElementsByClass("Tr8l").toString());
+//        StringBuilder sb = new StringBuilder(String.valueOf(doc.getElementsByClass("F2")));
+
+//        System.out.println(sb);
+
+//        String html = sb.toString();
+//        System.out.println(html);
+//        Document doc2 = Jsoup.parse(html);
+
+
+//        StringBuilder sbe = new StringBuilder(elementsF1.get(0).toString());
+
+        //System.out.println(sbe);
+
+//        sbe.insert(sbe.length()-5, "#");
+//        System.out.println(sbe);
+
+
+
+
+//
+//        int indexF1 = elementsF1.size();
+//        int countF1 = 0;
+//
+//        StringBuilder sb = new StringBuilder();
+//        while (countF1 < indexF1) {
+//            sb.append(elementsF1.get(countF1).text().replaceAll("- ", "-"));
+//            sb =sb.insert(3,'$');
+//
+//            System.out.println(sb.toString());
+//            sb.setLength(0);
+//            countF1 += 3;
+//        }
 
 
     }
