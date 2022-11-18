@@ -1,3 +1,4 @@
+/*
 import com.aspose.cells.Workbook;
 import com.aspose.cells.Worksheet;
 import org.jsoup.Jsoup;
@@ -48,45 +49,75 @@ public class Main {
             int countF1 = 0;
 
             while (countF1 < indexF1) {
-                stringBuilder.append(elementsF1.get(countF1).text()
-                        .replaceFirst("00 ", "")
-                        .replaceFirst("0", ";").replaceAll("- ", "-"));
-                stringBuilder =stringBuilder.insert(3,'$');
-                if(stringBuilder.charAt(stringBuilder.length()-1) == '0' & stringBuilder.charAt(stringBuilder.length()-2) == ' '){
-                    stringBuilder.deleteCharAt(stringBuilder.length()-1);
+                stringBuilder.append(elements.get(countF1).text()
+                        .replaceFirst("0 ", "")
+                        .replaceAll(" - ", "-")
+                        .replaceFirst(" 0 0 ", " 0 ")
+                        .replace("- ", "-"));
+                stringBuilder.insert(3,"&");
+
+                if (stringBuilder.charAt(stringBuilder.length() - 1) == '0' & stringBuilder.charAt(stringBuilder.length() - 2) == ' ') {
+                    stringBuilder.deleteCharAt(stringBuilder.length() - 1);
                 }
-//                allGames.add(stringBuilder.toString());
+                if (stringBuilder.charAt(4) == '0') {
+                    stringBuilder.deleteCharAt(4);
+                    stringBuilder.deleteCharAt(3);
+                }
+
+                String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst("0", ";");
+
+                stringBuilder.setLength(0);
+                stringBuilder.append(str);
+                if(str.contains("Bac&k to the Top")){
+                    stringBuilder.setLength(0);
+                }
                 System.out.println(stringBuilder.toString());
+
                 stringBuilder.setLength(0);
                 countF1 += 3;
             }
-
-
-            //drukowanie wierszy z tagiem F2
-            stringBuilder.setLength(0);
-            Elements elementsF2 = doc2.getElementsByClass("F2");
-            int indexF2 = elementsF2.size();
-            int countF2 = 0;
-            while (countF2 < indexF2) {
-                stringBuilder.append(elementsF1.get(countF2).text()
-                        .replaceFirst("00 ", "")
-                        .replaceFirst("0", ";").replaceAll("- ", "-"));
-                stringBuilder =stringBuilder.insert(3,'$');
-                if(stringBuilder.charAt(stringBuilder.length()-1) == '0' & stringBuilder.charAt(stringBuilder.length()-2) == ' '){
-                    stringBuilder.deleteCharAt(stringBuilder.length()-1);
-                }
-//                allGames.add(stringBuilder.toString());
-                System.out.println(stringBuilder.toString());
-                stringBuilder.setLength(0);
-                countF2 += 3;
-            }
-            sbLink.setLength(0);
-        }
-
-        //saveInExcel(allGames);
-
-
-    }
+//
+//
+//            //drukowanie wierszy z tagiem F2
+//            stringBuilder.setLength(0);
+//            Elements elementsF2 = doc2.getElementsByClass("F2");
+//            int indexF2 = elementsF2.size();
+//            int countF2 = 0;
+//            while (countF2 < indexF2) {
+//                stringBuilder.append(elements.get(countF2).text()
+//                        .replaceFirst("0 ", "")
+//                        .replaceAll(" - ", "-")
+//                        .replaceFirst(" 0 0 ", " 0 ")
+//                        .replace("- ", "-"));
+//                stringBuilder.insert(3,"&");
+//
+//                if (stringBuilder.charAt(stringBuilder.length() - 1) == '0' & stringBuilder.charAt(stringBuilder.length() - 2) == ' ') {
+//                    stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+//                }
+//                if (stringBuilder.charAt(4) == '0') {
+//                    stringBuilder.deleteCharAt(4);
+//                    stringBuilder.deleteCharAt(3);
+//                }
+//
+//                String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst("0", ";");
+//
+//                stringBuilder.setLength(0);
+//                stringBuilder.append(str);
+//                if(str.contains("Bac&k to the Top")){
+//                    stringBuilder.setLength(0);
+//                }
+//                System.out.println(stringBuilder.toString());
+//
+//                stringBuilder.setLength(0);
+//                countF2 += 3;
+//            }
+//            sbLink.setLength(0);
+//        }
+//
+//        //saveInExcel(allGames);
+//
+//
+//    }
 
     private static Elements getElementsFromURL(StringBuilder sbLink) throws IOException {
         Element element = Jsoup.connect(sbLink.toString()).get();
@@ -120,3 +151,4 @@ public class Main {
     }
 }
 
+*/

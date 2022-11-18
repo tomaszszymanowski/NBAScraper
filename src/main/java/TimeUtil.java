@@ -17,10 +17,10 @@ public class TimeUtil {
         System.out.println("Podaj zakres dat dla którego pobrać dane,");
         System.out.println("podaj początkowy zakres w formacie yyMMdd:  roboczo 221109");
 //        String startStr = scanner.next();
-        String startStr = "221108";
+        String startStr = "221115";
         System.out.println("podaj końcowy zakres w formacie yyMMdd: roboczo 22109 ");
 //        String endStr = scanner.next();
-        String endStr = "221108";
+        String endStr = "221115";
 
         // new line
         System.out.println();

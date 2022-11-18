@@ -33,14 +33,10 @@ public class ExtractDataFromURL {
         // drukowanie wierszy z tagiem F1
         StringBuilder stringBuilder = new StringBuilder();
 
-
-        elements = doc2.getElementsByClass("F2");
+        elements = doc2.getElementsByClass("F1");
 
         int index = elements.size();
         int count = 0;
-
-
-
 
         while (count < index) {
             stringBuilder.append(elements.get(count).text()
@@ -48,7 +44,7 @@ public class ExtractDataFromURL {
                     .replaceAll(" - ", "-")
                     .replaceFirst(" 0 0 ", " 0 ")
                     .replace("- ", "-"));
-            stringBuilder.insert(3,"$");
+            stringBuilder.insert(3,"&");
 
             if (stringBuilder.charAt(stringBuilder.length() - 1) == '0' & stringBuilder.charAt(stringBuilder.length() - 2) == ' ') {
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
@@ -58,15 +54,51 @@ public class ExtractDataFromURL {
                 stringBuilder.deleteCharAt(3);
             }
 
-            String str = stringBuilder.toString().replaceFirst(" 0 ", " ; ");
+            String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst("0", ";");
 
             stringBuilder.setLength(0);
             stringBuilder.append(str);
-            if(str.contains("Bac$k to the Top")){
+            if(str.contains("Bac&k to the Top")){
                 stringBuilder.setLength(0);
             }
             System.out.println(stringBuilder.toString());
 
+            stringBuilder.setLength(0);
+            count += 3;
+        }
+
+        // drukowanie wierszy z F2
+        stringBuilder.setLength(0);
+
+        elements = doc2.getElementsByClass("F2");
+
+        index = elements.size();
+        count = 0;
+
+        while (count < index) {
+            stringBuilder.append(elements.get(count).text()
+                    .replaceFirst("0 ", "")
+                    .replaceAll(" - ", "-")
+                    .replaceFirst(" 0 0 ", " 0 ")
+                    .replace("- ", "-"));
+            stringBuilder.insert(3,"&");
+
+            if (stringBuilder.charAt(stringBuilder.length() - 1) == '0' & stringBuilder.charAt(stringBuilder.length() - 2) == ' ') {
+                stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            }
+            if (stringBuilder.charAt(4) == '0') {
+                stringBuilder.deleteCharAt(4);
+                stringBuilder.deleteCharAt(3);
+            }
+
+            String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst("0", ";");
+
+            stringBuilder.setLength(0);
+            stringBuilder.append(str);
+            if(str.contains("Bac&k to the Top")){
+                stringBuilder.setLength(0);
+            }
+            System.out.println(stringBuilder.toString());
             stringBuilder.setLength(0);
             count += 3;
         }
