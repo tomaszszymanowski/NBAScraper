@@ -20,6 +20,7 @@ public class Main {
 
         // tworzenie listy zawierającej linki z podanego zakresu dat
         List<String> linksFromRange = TimeUtil.getLinksFromDateRange();
+
         ArrayList<String> allGames = new ArrayList<>();
         StringBuilder sbLink = new StringBuilder();
 
@@ -28,6 +29,7 @@ public class Main {
 
             sbLink.append(s);
             System.out.println(s);
+
 
             //pobranie documentu ze strony jako html
             Elements elements = getElementsFromURL(sbLink);
