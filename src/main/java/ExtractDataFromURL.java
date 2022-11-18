@@ -54,7 +54,7 @@ public class ExtractDataFromURL {
                 stringBuilder.deleteCharAt(3);
             }
 
-            String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst("0", ";");
+            String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst(" 0 ", ";");
 
             stringBuilder.setLength(0);
             stringBuilder.append(str);
@@ -75,6 +75,8 @@ public class ExtractDataFromURL {
         index = elements.size();
         count = 0;
 
+
+
         while (count < index) {
             stringBuilder.append(elements.get(count).text()
                     .replaceFirst("0 ", "")
@@ -91,20 +93,30 @@ public class ExtractDataFromURL {
                 stringBuilder.deleteCharAt(3);
             }
 
-            String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst("0", ";");
+            String str = stringBuilder.toString().replaceFirst("& 0", "&").replaceFirst(" 0 ", ";");
 
+            String[] arr = str.split(";");
+            System.out.println(arr[1]);
+            String[] numArr = arr[1].split(" ");
+            System.out.println(numArr[1]);
             stringBuilder.setLength(0);
             stringBuilder.append(str);
             if(str.contains("Bac&k to the Top")){
                 stringBuilder.setLength(0);
             }
             System.out.println(stringBuilder.toString());
+
+
+
             stringBuilder.setLength(0);
             count += 3;
         }
 
 
 
+
     }
+
+
 
 }
