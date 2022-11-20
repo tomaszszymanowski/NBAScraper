@@ -1,34 +1,29 @@
-import org.joda.time.DateTime;
-
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class TimeUtil {
 
-    static List<String> getLinksFromDateRange() {
-
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj zakres dat dla którego pobrać dane,");
-        System.out.println("podaj początkowy zakres w formacie yyMMdd: ");
-        String startStr = scanner.next();
-//        String startStr = "221115";
-        System.out.println("podaj końcowy zakres w formacie yyMMdd: ");
-        String endStr = scanner.next();
-//        String endStr = "221115";
 
-        // new line
-        System.out.println();
+//        System.out.println("Podaj zakres dat dla którego pobrać dane,");
+//        System.out.println("podaj początkowy zakres w formacie yyMMdd: ");
+//        String start = scanner.next();
+////        String startStr = "221115";
+//        System.out.println("podaj końcowy zakres w formacie yyMMdd: ");
+//        String end = scanner.next();
+////        String endStr = "221115"
+//        // new line
+//        System.out.println();
 
+        static List<String> getLinksFromDateRange(String start, String end) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuMMdd");
-        LocalDate localDateStart = LocalDate.parse(startStr, formatter);
+        LocalDate localDateStart = LocalDate.parse(start, formatter);
         String textStart = localDateStart.format(formatter);
-        LocalDate localDateEnd = LocalDate.parse(endStr, formatter);
+        LocalDate localDateEnd = LocalDate.parse(end, formatter);
         String textEnd = localDateEnd.format(formatter);
 
 //        System.out.println(textStart);
@@ -37,8 +32,8 @@ public class TimeUtil {
         //System.out.println(daysInPeriodAsIndex);
 
         StringBuilder modifiedURL = new StringBuilder("https://www.progsport.com/basketball/bsk-predictions-221109.html");
-
         LocalDate localDateToInsertInURL = localDateStart;
+
         List<String> links = new ArrayList<>();
 
         for (int i = 0; i <= daysInPeriodAsIndex; i++) {
